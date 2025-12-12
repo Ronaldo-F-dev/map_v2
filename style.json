@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "Benin OSM Bright Enhanced",
+  "name": "Benin Modern Style",
   "sources": {
     "benin": {
       "type": "vector",
@@ -14,52 +14,38 @@
   "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "water",
-      "type": "fill",
-      "source": "benin",
-      "source-layer": "water",
-      "paint": { "fill-color": "#a0c8f0" }
-    },
-    {
-      "id": "parks",
-      "type": "fill",
-      "source": "benin",
-      "source-layer": "park",
-      "paint": { "fill-color": "#c8e6c9" }
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#f8f4f0"
+      }
     },
     {
       "id": "landuse",
       "type": "fill",
       "source": "benin",
       "source-layer": "landuse",
-      "paint": { "fill-color": "#f3f3f3" }
-    },
-    {
-      "id": "road_outline",
-      "type": "line",
-      "source": "benin",
-      "source-layer": "transportation",
       "paint": {
-        "line-color": "#bbb",
-        "line-width": [
-          "interpolate", ["linear"], ["zoom"],
-          5, 0.5,
-          12, 3
-        ]
+        "fill-color": "#f0ede8"
       }
     },
     {
-      "id": "road",
-      "type": "line",
+      "id": "parks",
+      "type": "fill",
       "source": "benin",
-      "source-layer": "transportation",
+      "source-layer": "park",
       "paint": {
-        "line-color": "#ffffff",
-        "line-width": [
-          "interpolate", ["linear"], ["zoom"],
-          5, 0.3,
-          12, 2.5
-        ]
+        "fill-color": "#d4edda",
+        "fill-opacity": 0.8
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "benin",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#aad3df"
       }
     },
     {
@@ -67,32 +53,483 @@
       "type": "line",
       "source": "benin",
       "source-layer": "waterway",
-      "paint": { "line-color": "#3399ff", "line-width": 1 }
+      "paint": {
+        "line-color": "#aad3df",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          8,
+          0.5,
+          14,
+          2
+        ]
+      }
     },
     {
       "id": "building",
       "type": "fill",
       "source": "benin",
       "source-layer": "building",
-      "paint": { "fill-color": "#e0d6c3", "fill-opacity": 0.7 }
+      "minzoom": 13,
+      "paint": {
+        "fill-color": "#e0dcd8",
+        "fill-opacity": 0.7
+      }
     },
     {
-      "id": "place_label",
+      "id": "building_outline",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "building",
+      "minzoom": 14,
+      "paint": {
+        "line-color": "#d0ccc8",
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "road_motorway_casing",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "motorway",
+        "motorway_link"
+      ],
+      "paint": {
+        "line-color": "#e39b4d",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          5,
+          1,
+          10,
+          6,
+          14,
+          16
+        ]
+      }
+    },
+    {
+      "id": "road_motorway",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "motorway",
+        "motorway_link"
+      ],
+      "paint": {
+        "line-color": "#ffa73d",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          5,
+          0.5,
+          10,
+          4,
+          14,
+          12
+        ]
+      }
+    },
+    {
+      "id": "road_trunk_casing",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "trunk",
+        "trunk_link"
+      ],
+      "paint": {
+        "line-color": "#f4b95a",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          5,
+          0.8,
+          10,
+          5,
+          14,
+          14
+        ]
+      }
+    },
+    {
+      "id": "road_trunk",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "trunk",
+        "trunk_link"
+      ],
+      "paint": {
+        "line-color": "#ffc965",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          5,
+          0.5,
+          10,
+          3.5,
+          14,
+          10
+        ]
+      }
+    },
+    {
+      "id": "road_primary_casing",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "primary",
+        "primary_link"
+      ],
+      "paint": {
+        "line-color": "#e6b04e",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          5,
+          0.75,
+          10,
+          4,
+          14,
+          12
+        ]
+      }
+    },
+    {
+      "id": "road_primary",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "primary",
+        "primary_link"
+      ],
+      "paint": {
+        "line-color": "#fcd440",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          5,
+          0.4,
+          10,
+          3,
+          14,
+          9
+        ]
+      }
+    },
+    {
+      "id": "road_secondary_casing",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "secondary",
+        "secondary_link"
+      ],
+      "paint": {
+        "line-color": "#c7c3b8",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          7,
+          0.8,
+          10,
+          3.5,
+          14,
+          10
+        ]
+      }
+    },
+    {
+      "id": "road_secondary",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "secondary",
+        "secondary_link"
+      ],
+      "paint": {
+        "line-color": "#ffffff",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          7,
+          0.5,
+          10,
+          2.5,
+          14,
+          8
+        ]
+      }
+    },
+    {
+      "id": "road_tertiary_casing",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "tertiary",
+        "tertiary_link"
+      ],
+      "paint": {
+        "line-color": "#d4d0c8",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          9,
+          0.8,
+          12,
+          3,
+          14,
+          8
+        ]
+      }
+    },
+    {
+      "id": "road_tertiary",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "tertiary",
+        "tertiary_link"
+      ],
+      "paint": {
+        "line-color": "#ffffff",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          9,
+          0.5,
+          12,
+          2,
+          14,
+          6
+        ]
+      }
+    },
+    {
+      "id": "road_minor_casing",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "unclassified",
+        "residential",
+        "service"
+      ],
+      "minzoom": 11,
+      "paint": {
+        "line-color": "#d9d5cc",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          11,
+          1,
+          14,
+          6
+        ]
+      }
+    },
+    {
+      "id": "road_minor",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "unclassified",
+        "residential",
+        "service"
+      ],
+      "minzoom": 11,
+      "paint": {
+        "line-color": "#ffffff",
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.5],
+          ["zoom"],
+          11,
+          0.5,
+          14,
+          4
+        ]
+      }
+    },
+    {
+      "id": "road_path",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "path",
+        "footway",
+        "track"
+      ],
+      "minzoom": 13,
+      "paint": {
+        "line-color": "#c9c5bc",
+        "line-width": 1,
+        "line-dasharray": [2, 2]
+      }
+    },
+    {
+      "id": "place_label_city",
       "type": "symbol",
       "source": "benin",
       "source-layer": "place",
+      "filter": ["==", "place", "city"],
       "layout": {
         "text-field": "{name:latin}",
+        "text-font": ["Open Sans Bold"],
         "text-size": [
-          "interpolate", ["linear"], ["zoom"],
-          4, 12,
-          10, 20
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          4,
+          14,
+          10,
+          22
+        ],
+        "text-transform": "uppercase",
+        "text-letter-spacing": 0.1
+      },
+      "paint": {
+        "text-color": "#2c2c2c",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
+      "id": "place_label_town",
+      "type": "symbol",
+      "source": "benin",
+      "source-layer": "place",
+      "filter": ["==", "place", "town"],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Open Sans Semibold"],
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          12,
+          12,
+          20
         ]
       },
       "paint": {
-        "text-color": "#333",
+        "text-color": "#404040",
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1.5
+        "text-halo-width": 2,
+        "text-halo-blur": 0.8
+      }
+    },
+    {
+      "id": "place_label_village",
+      "type": "symbol",
+      "source": "benin",
+      "source-layer": "place",
+      "filter": [
+        "in",
+        "place",
+        "village",
+        "hamlet"
+      ],
+      "minzoom": 10,
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Open Sans Regular"],
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10,
+          10,
+          14,
+          16
+        ]
+      },
+      "paint": {
+        "text-color": "#505050",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0.5
+      }
+    },
+    {
+      "id": "road_label",
+      "type": "symbol",
+      "source": "benin",
+      "source-layer": "transportation",
+      "filter": [
+        "in",
+        "highway",
+        "motorway",
+        "trunk",
+        "primary",
+        "secondary"
+      ],
+      "minzoom": 12,
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Open Sans Regular"],
+        "text-size": 11,
+        "symbol-placement": "line",
+        "text-rotation-alignment": "map"
+      },
+      "paint": {
+        "text-color": "#5c5c5c",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
       }
     }
   ]
