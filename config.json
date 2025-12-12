@@ -1,7 +1,48 @@
 {
-  "name": "benin",
-  "minzoom": 0,
-  "maxzoom": 14,
-  "tile_format": "pbf",
-  "compression": "gzip"
+  "layers": {
+    "transportation": {
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    "building": {
+      "minzoom": 13,
+      "maxzoom": 14
+    },
+    "water": {
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    "waterway": {
+      "minzoom": 8,
+      "maxzoom": 14
+    },
+    "park": {
+      "minzoom": 10,
+      "maxzoom": 14
+    },
+    "landuse": {
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    "place": {
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    "poi": {
+      "minzoom": 13,
+      "maxzoom": 14
+    },
+    "boundary": {
+      "minzoom": 0,
+      "maxzoom": 14
+    }
+  },
+  "settings": {
+    "name": "benin",
+    "minzoom": 0,
+    "maxzoom": 14,
+    "basezoom": 14,
+    "include_ids": false,
+    "compress": "gzip"
+  }
 }
