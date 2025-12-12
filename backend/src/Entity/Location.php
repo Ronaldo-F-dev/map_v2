@@ -54,7 +54,7 @@ class Location
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $address = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
