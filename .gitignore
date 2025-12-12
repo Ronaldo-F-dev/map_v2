@@ -1,2 +1,38 @@
+# Tiles et données OSM
 benin.mbtiles
 benin.osm.pbf
+benin-custom.mbtiles
+benin-test1.mbtiles
+*.mbtiles
+
+# Backend (Symfony)
+backend/var/
+backend/vendor/
+backend/.env.local
+backend/.env.local.php
+backend/.env.*.local
+backend/public/bundles/
+backend/public/build/
+
+# Frontend (Vue.js)
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
