@@ -33,18 +33,18 @@ class Location
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 8)]
     #[Assert\NotBlank(message: "La latitude est requise")]
     #[Assert\Range(
+        notInRangeMessage: "La latitude doit être entre {{ min }} et {{ max }}",
         min: -90,
-        max: 90,
-        notInRangeMessage: "La latitude doit être entre {{ min }} et {{ max }}"
+        max: 90
     )]
     private ?string $latitude = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 11, scale: 8)]
     #[Assert\NotBlank(message: "La longitude est requise")]
     #[Assert\Range(
+        notInRangeMessage: "La longitude doit être entre {{ min }} et {{ max }}",
         min: -180,
-        max: 180,
-        notInRangeMessage: "La longitude doit être entre {{ min }} et {{ max }}"
+        max: 180
     )]
     private ?string $longitude = null;
 

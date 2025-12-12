@@ -15,11 +15,18 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 #[Route('/api/locations', name: 'api_location_')]
 class LocationController extends AbstractController
 {
+    private $entityManager;
+    private $locationRepository;
+    private $validator;
+
     public function __construct(
-        private EntityManagerInterface $entityManager,
-        private LocationRepository $locationRepository,
-        private ValidatorInterface $validator
+        EntityManagerInterface $entityManager,
+        LocationRepository $locationRepository,
+        ValidatorInterface $validator
     ) {
+        $this->validator = $validator;
+        $this->locationRepository = $locationRepository;
+        $this->entityManager = $entityManager;
     }
 
     /**
