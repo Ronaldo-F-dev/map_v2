@@ -1,0 +1,99 @@
+{
+  "version": 8,
+  "name": "Benin OSM Bright Enhanced",
+  "sources": {
+    "benin": {
+      "type": "vector",
+      "tiles": [
+        "http://localhost:8000/services/benin/tiles/{z}/{x}/{y}.pbf"
+      ],
+      "minzoom": 0,
+      "maxzoom": 14
+    }
+  },
+  "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "benin",
+      "source-layer": "water",
+      "paint": { "fill-color": "#a0c8f0" }
+    },
+    {
+      "id": "parks",
+      "type": "fill",
+      "source": "benin",
+      "source-layer": "park",
+      "paint": { "fill-color": "#c8e6c9" }
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "benin",
+      "source-layer": "landuse",
+      "paint": { "fill-color": "#f3f3f3" }
+    },
+    {
+      "id": "road_outline",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "paint": {
+        "line-color": "#bbb",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          5, 0.5,
+          12, 3
+        ]
+      }
+    },
+    {
+      "id": "road",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "paint": {
+        "line-color": "#ffffff",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          5, 0.3,
+          12, 2.5
+        ]
+      }
+    },
+    {
+      "id": "waterways",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "waterway",
+      "paint": { "line-color": "#3399ff", "line-width": 1 }
+    },
+    {
+      "id": "building",
+      "type": "fill",
+      "source": "benin",
+      "source-layer": "building",
+      "paint": { "fill-color": "#e0d6c3", "fill-opacity": 0.7 }
+    },
+    {
+      "id": "place_label",
+      "type": "symbol",
+      "source": "benin",
+      "source-layer": "place",
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-size": [
+          "interpolate", ["linear"], ["zoom"],
+          4, 12,
+          10, 20
+        ]
+      },
+      "paint": {
+        "text-color": "#333",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1.5
+      }
+    }
+  ]
+}

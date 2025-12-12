@@ -1,0 +1,7 @@
+{
+  "name": "benin",
+  "minzoom": 0,
+  "maxzoom": 14,
+  "tile_format": "pbf",
+  "compression": "gzip"
+}

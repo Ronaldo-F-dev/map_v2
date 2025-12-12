@@ -1,0 +1,78 @@
+{
+  "version": 8,
+  "name": "Benin OSM Bright",
+  "sources": {
+    "benin": {
+      "type": "vector",
+      "tiles": [
+        "http://localhost:8000/services/benin/tiles/{z}/{x}/{y}.pbf"
+      ],
+      "minzoom": 0,
+      "maxzoom": 14
+    }
+  },
+  "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "benin",
+      "source-layer": "water",
+      "paint": { "fill-color": "#a0c8f0" }
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "benin",
+      "source-layer": "landuse",
+      "paint": { "fill-color": "#e5e9e1" }
+    },
+    {
+      "id": "road",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "paint": {
+        "line-color": "#ffffff",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          5, 0.3,
+          12, 2.5
+        ]
+      }
+    },
+    {
+      "id": "road_outline",
+      "type": "line",
+      "source": "benin",
+      "source-layer": "transportation",
+      "paint": {
+        "line-color": "#bbb",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          5, 0.5,
+          12, 3
+        ]
+      }
+    },
+    {
+      "id": "place_label",
+      "type": "symbol",
+      "source": "benin",
+      "source-layer": "place",
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-size": [
+          "interpolate", ["linear"], ["zoom"],
+          4, 10,
+          10, 18
+        ]
+      },
+      "paint": {
+        "text-color": "#333",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1.2
+      }
+    }
+  ]
+}
