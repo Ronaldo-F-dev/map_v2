@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "Benin Modern Style - Simple",
+  "name": "Benin Modern Style - Enhanced",
   "sources": {
     "benin": {
       "type": "vector",
@@ -17,7 +17,7 @@
       "id": "background",
       "type": "background",
       "paint": {
-        "background-color": "#f8f4f0"
+        "background-color": "#f5f3f0"
       }
     },
     {
@@ -26,8 +26,8 @@
       "source": "benin",
       "source-layer": "landcover",
       "paint": {
-        "fill-color": "#e8f5e9",
-        "fill-opacity": 0.5
+        "fill-color": "#e0f0e0",
+        "fill-opacity": 0.4
       }
     },
     {
@@ -36,8 +36,8 @@
       "source": "benin",
       "source-layer": "landuse",
       "paint": {
-        "fill-color": "#f0ede8",
-        "fill-opacity": 0.6
+        "fill-color": "#ebe8e0",
+        "fill-opacity": 0.5
       }
     },
     {
@@ -46,8 +46,8 @@
       "source": "benin",
       "source-layer": "park",
       "paint": {
-        "fill-color": "#d4edda",
-        "fill-opacity": 0.8
+        "fill-color": "#c8e6c9",
+        "fill-opacity": 0.6
       }
     },
     {
@@ -56,7 +56,7 @@
       "source": "benin",
       "source-layer": "water",
       "paint": {
-        "fill-color": "#aad3df"
+        "fill-color": "#8ec4db"
       }
     },
     {
@@ -65,15 +65,15 @@
       "source": "benin",
       "source-layer": "waterway",
       "paint": {
-        "line-color": "#aad3df",
+        "line-color": "#8ec4db",
         "line-width": [
           "interpolate",
           ["linear"],
           ["zoom"],
           8,
-          0.5,
+          0.8,
           14,
-          2
+          3
         ]
       }
     },
@@ -84,8 +84,8 @@
       "source-layer": "building",
       "minzoom": 13,
       "paint": {
-        "fill-color": "#e0dcd8",
-        "fill-opacity": 0.7
+        "fill-color": "#d9d0c7",
+        "fill-opacity": 0.8
       }
     },
     {
@@ -95,7 +95,7 @@
       "source-layer": "building",
       "minzoom": 14,
       "paint": {
-        "line-color": "#d0ccc8",
+        "line-color": "#c0b8af",
         "line-width": 0.5
       }
     },
@@ -105,19 +105,19 @@
       "source": "benin",
       "source-layer": "transportation",
       "paint": {
-        "line-color": "#c7c3b8",
+        "line-color": "#b0aca0",
         "line-width": [
           "interpolate",
           ["exponential", 1.5],
           ["zoom"],
           5,
-          1.2,
+          1.5,
           10,
-          4,
+          5,
           14,
-          12
+          14
         ],
-        "line-opacity": 0.8
+        "line-opacity": 1
       }
     },
     {
@@ -132,96 +132,36 @@
           ["exponential", 1.5],
           ["zoom"],
           5,
-          0.8,
+          1,
           10,
-          3,
+          3.5,
           14,
-          9
+          11
         ]
       }
     },
     {
-      "id": "place_label_city",
+      "id": "place_label",
       "type": "symbol",
       "source": "benin",
       "source-layer": "place",
-      "filter": ["==", ["get", "place"], "city"],
       "layout": {
-        "text-field": ["get", "name:latin"],
-        "text-font": ["Open Sans Bold"],
-        "text-size": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          4,
-          14,
-          10,
-          22
-        ],
-        "text-transform": "uppercase",
-        "text-letter-spacing": 0.1
-      },
-      "paint": {
-        "text-color": "#2c2c2c",
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2,
-        "text-halo-blur": 1
-      }
-    },
-    {
-      "id": "place_label_town",
-      "type": "symbol",
-      "source": "benin",
-      "source-layer": "place",
-      "filter": ["==", ["get", "place"], "town"],
-      "layout": {
-        "text-field": ["get", "name:latin"],
+        "text-field": "{name}",
         "text-font": ["Open Sans Semibold"],
         "text-size": [
           "interpolate",
           ["linear"],
           ["zoom"],
-          6,
+          4,
           12,
-          12,
+          10,
           20
         ]
       },
       "paint": {
-        "text-color": "#404040",
+        "text-color": "#1a1a1a",
         "text-halo-color": "#ffffff",
-        "text-halo-width": 2,
-        "text-halo-blur": 0.8
-      }
-    },
-    {
-      "id": "place_label_village",
-      "type": "symbol",
-      "source": "benin",
-      "source-layer": "place",
-      "filter": [
-        "in",
-        ["get", "place"],
-        ["literal", ["village", "hamlet"]]
-      ],
-      "minzoom": 10,
-      "layout": {
-        "text-field": ["get", "name:latin"],
-        "text-font": ["Open Sans Regular"],
-        "text-size": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          10,
-          10,
-          14,
-          16
-        ]
-      },
-      "paint": {
-        "text-color": "#505050",
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1.5,
+        "text-halo-width": 2.5,
         "text-halo-blur": 0.5
       }
     },
@@ -232,16 +172,16 @@
       "source-layer": "transportation_name",
       "minzoom": 12,
       "layout": {
-        "text-field": ["get", "name:latin"],
+        "text-field": "{name}",
         "text-font": ["Open Sans Regular"],
         "text-size": 11,
         "symbol-placement": "line",
         "text-rotation-alignment": "map"
       },
       "paint": {
-        "text-color": "#5c5c5c",
+        "text-color": "#4a4a4a",
         "text-halo-color": "#ffffff",
-        "text-halo-width": 2
+        "text-halo-width": 2.5
       }
     }
   ]
