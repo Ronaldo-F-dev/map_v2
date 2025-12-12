@@ -1,0 +1,13 @@
+{
+  "layers": {
+    "transportation": {
+      "minzoom": 0,
+      "maxzoom": 14
+    }
+  },
+  "settings": {
+    "minzoom": 0,
+    "maxzoom": 14,
+    "basezoom": 14
+  }
+}

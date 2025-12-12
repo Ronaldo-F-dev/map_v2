@@ -27,18 +27,9 @@
     "place": {
       "minzoom": 0,
       "maxzoom": 14
-    },
-    "poi": {
-      "minzoom": 13,
-      "maxzoom": 14
-    },
-    "boundary": {
-      "minzoom": 0,
-      "maxzoom": 14
     }
   },
   "settings": {
-    "name": "benin",
     "minzoom": 0,
     "maxzoom": 14,
     "basezoom": 14,
